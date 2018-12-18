@@ -15,13 +15,14 @@ using System.Windows.Shapes;
 namespace QuanLyChungCu.View
 {
     /// <summary>
-    /// Interaction logic for QuanLyQuyDinh.xaml
+    /// Interaction logic for ManHinhChinh.xaml
     /// </summary>
-    public partial class QuanLyQuyDinh : Window
+    public partial class ManHinhChinh : Window
     {
-        public QuanLyQuyDinh()
+        public ManHinhChinh()
         {
             InitializeComponent();
         }
+        // SelectionChanged="ListViewMenu_SelectionChanged"
     }
 }
