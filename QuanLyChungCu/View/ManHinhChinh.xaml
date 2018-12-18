@@ -6,110 +6,112 @@
         xmlns:local="clr-namespace:QuanLyChungCu.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Quản lý chung cư" Height="700" Width="1300" WindowStartupLocation="CenterScreen"
-        ResizeMode="CanResize">
+        Title="Quản lý chung cư" WindowState="Maximized" WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
 
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <StackPanel Width="250" Background="#FF6A98E8">
-                <Border Height="150" BorderBrush="#FF8909E2" BorderThickness="1">
-                    <Grid Margin="5">
-                        
-                    </Grid>
-                </Border>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
 
-                <Border BorderBrush="#FF8909E2" BorderThickness="1">
-                    <ListView x:Name="ListViewMenu" Margin="5" FontFamily="Arial" FontSize="15">
-                        <ListViewItem x:Name="ItemHangHoa" Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="HomeVariant" VerticalAlignment="Center"/>
-                                <TextBlock Text="Quản lý căn hộ" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
-                            </StackPanel>
-                        </ListViewItem>
-
-                        <ListViewItem x:Name="ItemKhachHang" Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Cart" VerticalAlignment="Center"/>
-                                <TextBlock Text="Quản lý dịch vụ" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
-                            </StackPanel>
-                        </ListViewItem>
-
-                        <ListViewItem x:Name="ItemTonDauKy" Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="BookMultipleVariant" VerticalAlignment="Center"/>
-                                <TextBlock Text="Quản lý hóa đơn" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
-                            </StackPanel>
-                        </ListViewItem>
-
-
-                        <ListViewItem x:Name="ItemNhapHang" Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="BookOpenVariant" VerticalAlignment="Center"/>
-                                <TextBlock Text="Quản lý hợp đồng" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
-                            </StackPanel>
-                        </ListViewItem>
-
-                        <ListViewItem x:Name="ItemXuatHang" Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="AccountCardDetails" VerticalAlignment="Center"/>
-                                <TextBlock Text="Quản lý dân cư" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
-                            </StackPanel>
-
-                        </ListViewItem>
-
-                        <ListViewItem x:Name="ItemTongNhapXuat" Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Alert" VerticalAlignment="Center"/>
-                                <TextBlock Text="Quản lý quy định" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
-                            </StackPanel>
-                        </ListViewItem>
-
-                        <ListViewItem x:Name="ItemBangKeNhapXuat" Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="AccountCircle" VerticalAlignment="Center"/>
-                                <TextBlock Text="Quản lý tài khoản" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
-                            </StackPanel>
-                        </ListViewItem>
-                    </ListView>
-                </Border>
-            </StackPanel>
-
-            <StackPanel Width="1050">
-                <!-- Thanh tiêu đề -->
-                <Canvas Height="70" Background="#FF1735B9">
-                    <StackPanel Orientation="Horizontal">
-                        <Grid Width="950">
-                            <TextBlock x:Name="TieuDe" Padding="12" Foreground="White" TextAlignment="Center" FontSize="30" FontWeight="Bold">Quản lý căn hộ</TextBlock>
-                        </Grid>
-
-                        <Grid>
-                            <materialDesign:PopupBox Foreground="White" HorizontalAlignment="Right" Margin="0,0,10,0"
-                                         PlacementMode="BottomAndAlignRightEdges">
-                                <StackPanel>
-                                    <Button>Đăng xuất</Button>
-                                    <Button>Thoát</Button>
-                                </StackPanel>
-                            </materialDesign:PopupBox>
-                        </Grid>
-                    </StackPanel>
-                </Canvas>
-
-                <!-- Màn hình hiển thị -->
-                <Grid Height="600" Background="White">
-                    <StackPanel>
-                        <!-- Tên tài khoản -->
-                        <Grid Height="60">
-                            <TextBlock x:Name="textNgay" VerticalAlignment="Center" HorizontalAlignment="Left"
-                                   Margin="100,10,0,0" ></TextBlock>
-                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"
-                                   FontFamily="Arial" FontSize="20" Margin="0,0,50,0">Tài khoản</TextBlock>
-                        </Grid>
-                        <Grid x:Name="GridMain" Height="540">
-                            
-                        </Grid>
-                    </StackPanel>
+        <StackPanel Background="#FF6A98E8" Grid.Column="0">
+            <Border Height="150" BorderBrush="#FF8909E2" BorderThickness="1">
+                <Grid Margin="5">
+                    <Image Source="/Imgs/apartment.png"></Image>
                 </Grid>
-            </StackPanel>
+            </Border>
+
+            <Border BorderBrush="#FF8909E2" BorderThickness="1">
+                <ListView x:Name="ListViewMenu" Margin="5" FontFamily="Arial" FontSize="15">
+                    <ListViewItem x:Name="ItemHangHoa" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="HomeVariant" VerticalAlignment="Center"/>
+                            <TextBlock Text="Quản lý căn hộ" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ItemKhachHang" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Cart" VerticalAlignment="Center"/>
+                            <TextBlock Text="Quản lý dịch vụ" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ItemTonDauKy" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="BookMultipleVariant" VerticalAlignment="Center"/>
+                            <TextBlock Text="Quản lý hóa đơn" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+
+                    <ListViewItem x:Name="ItemNhapHang" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="BookOpenVariant" VerticalAlignment="Center"/>
+                            <TextBlock Text="Quản lý hợp đồng" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ItemXuatHang" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountCardDetails" VerticalAlignment="Center"/>
+                            <TextBlock Text="Quản lý dân cư" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
+                        </StackPanel>
+
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ItemTongNhapXuat" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Alert" VerticalAlignment="Center"/>
+                            <TextBlock Text="Quản lý quy định" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ItemBangKeNhapXuat" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountCircle" VerticalAlignment="Center"/>
+                            <TextBlock Text="Quản lý tài khoản" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="6*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <!-- Thanh tiêu đề -->
+            <Grid Height="70" Background="#FF1735B9" Grid.Row="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <TextBlock x:Name="TieuDe" Padding="12" Foreground="White" TextAlignment="Center" FontSize="30" FontWeight="Bold"></TextBlock>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <materialDesign:PopupBox Foreground="White" HorizontalAlignment="Right" Margin="0,0,10,0"
+                                        PlacementMode="BottomAndAlignRightEdges">
+                            <StackPanel>
+                                <Button>Đăng xuất</Button>
+                                <Button>Thoát</Button>
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!-- Màn hình hiển thị -->
+            <Grid Background="White" Grid.Row="1">
+                <Grid x:Name="GridMain"></Grid>
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>

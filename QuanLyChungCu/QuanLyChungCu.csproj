@@ -74,6 +74,12 @@
     <Compile Include="View\ManHinhChinh.xaml.cs">
       <DependentUpon>ManHinhChinh.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ThemCanHo.xaml.cs">
+      <DependentUpon>ThemCanHo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC_View\QuanLyCanHo.xaml.cs">
+      <DependentUpon>QuanLyCanHo.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,6 +97,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManHinhChinh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThemCanHo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UC_View\QuanLyCanHo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,8 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />
-    <Folder Include="Imgs\" />
     <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\apartment.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
