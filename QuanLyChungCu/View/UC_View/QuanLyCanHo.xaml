@@ -8,6 +8,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
@@ -15,8 +16,8 @@
         <Grid Grid.Row="0">
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
@@ -32,7 +33,7 @@
                      Margin="8 0 0 0"
                      materialDesign:HintAssist.Hint="Tìm theo mã"
                      materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                     BorderThickness="0"
+                     BorderThickness="0" FontSize="18" Padding="2"
                      Width="250"
                      VerticalAlignment="Center" />
 
@@ -55,29 +56,152 @@
                             <materialDesign:PackIcon Kind="Delete" />
                         </Button>
                         <Button Margin="10,0,0,0" Width="60" ToolTip="Sửa">
-                            <materialDesign:PackIcon Kind="GreasePencil"></materialDesign:PackIcon>
+                            <materialDesign:PackIcon Kind="ContentSave"></materialDesign:PackIcon>
                         </Button>
                     </StackPanel>
                 </Grid>
             </Grid>
         </Grid>
-
         <Grid Grid.Row="1">
-            
+            <Canvas Height="1" Background="#FF7E0FEC"></Canvas>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Border BorderThickness="1" BorderBrush="BlueViolet"
+                                Margin="80 15"
+                                Height="40"
+                                CornerRadius="4">
+                            <TextBox x:Name="tbID" materialDesign:HintAssist.Hint="ID căn hộ" BorderThickness="0" Margin="1,1,1,1" FontFamily="Arial" 
+                                     FontSize="18" Padding="2"></TextBox>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Border BorderThickness="1" BorderBrush="BlueViolet"
+                                Margin="80 15"
+                                Height="40"
+                                CornerRadius="4">
+                            <TextBox x:Name="tbGia" materialDesign:HintAssist.Hint="Giá căn hộ"  BorderThickness="0" Margin="1,1,1,1" FontFamily="Arial" 
+                                     FontSize="18" Padding="2"></TextBox>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Border BorderThickness="1" BorderBrush="BlueViolet"
+                                Margin="80 15"
+                                Height="40"
+                                CornerRadius="4">
+                            <TextBox x:Name="tbImg" materialDesign:HintAssist.Hint="Chọn hình ảnh"  BorderThickness="0" Margin="1,1,1,1" FontFamily="Arial" 
+                                     FontSize="18" Padding="2"></TextBox>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Border BorderThickness="1" BorderBrush="BlueViolet"
+                                Margin="80 15"
+                                Height="40"
+                                CornerRadius="4">
+                            <TextBox x:Name="tbTen" materialDesign:HintAssist.Hint="Tên căn hộ" BorderThickness="0" Margin="1,1,1,1" FontFamily="Arial" 
+                                     FontSize="18" Padding="2"></TextBox>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Border BorderThickness="1" BorderBrush="BlueViolet"
+                                Margin="80 15"
+                                Height="40"
+                                CornerRadius="4">
+                            <TextBox x:Name="tbGiaThang" materialDesign:HintAssist.Hint="Giá thuê theo tháng"  BorderThickness="0" Margin="1,1,1,1" FontFamily="Arial" 
+                                     FontSize="18" Padding="2"></TextBox>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Grid>
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3" Height="380">
             <Border BorderBrush="BlueViolet"
                 BorderThickness="1" Margin="10">
-                <ListView x:Name="lvDanhMucHangHoa">
+                <ListView x:Name="lvDanhSachChungCu">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}" Width="80"></GridViewColumn>
-                            <GridViewColumn Header="Mã hàng" DisplayMemberBinding="{Binding MaHang}" Width="120"></GridViewColumn>
-                            <GridViewColumn Header="Tên hàng" DisplayMemberBinding="{Binding TenHang}" Width="150"></GridViewColumn>
-                            <GridViewColumn Header="Giá" DisplayMemberBinding="{Binding Gia}" Width="150"></GridViewColumn>
-                            <GridViewColumn Header="Ngày nhập" DisplayMemberBinding="{Binding NgayNhap}" Width="200"></GridViewColumn>
-                            <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SoLuong}" Width="100"></GridViewColumn>
+                            <GridViewColumn Header="ID Căn hộ" Width="auto">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding IDCanHo}" Padding="25 5"></TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Tên Căn hộ" Width="auto">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding TenCanHo}" Padding="10 5"></TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Giá" Width="auto">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding GiaCanHo}" Padding="0 5"></TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Giá theo tháng" Width="auto">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding GiaTheoThang}" Padding="15 5"></TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Ngày thuê" Width="auto">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding NgayThue}" Padding="0 5"></TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Số tháng thuê" Width="auto">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding SoThangThue}" Padding="45 5"></TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Tình trạng" Width="auto">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding TinhTrang}" Padding="5 5"></TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Xem dịch vụ">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Click="Button_Xem_DichVu">Xem</Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

@@ -23,6 +23,42 @@ namespace QuanLyChungCu.View.UC_View
         public QuanLyCanHo()
         {
             InitializeComponent();
+            InitData();
         }
+
+        private void InitData()
+        {
+            List<CanHo> listCanHo = new List<CanHo>();
+            for(int i = 0; i < 20; ++i)
+            {
+                listCanHo.Add(new CanHo()
+                {
+                    IDCanHo = (i + 1).ToString(),
+                    TenCanHo = "Căn hộ " + (i + 1).ToString(),
+                    GiaCanHo = 10000000,
+                    GiaTheoThang = 100000,
+                    NgayThue = new DateTime(),
+                    SoThangThue = 0,
+                    TinhTrang = 1
+                });
+            }
+            lvDanhSachChungCu.ItemsSource = listCanHo;
+        }
+
+        private void Button_Xem_DichVu(object sender, RoutedEventArgs e)
+        {
+            
+        }
+    }
+
+    public class CanHo
+    {
+        public string IDCanHo { get; set; }
+        public string TenCanHo { get; set; }
+        public Double GiaCanHo { get; set; }
+        public Double GiaTheoThang { get; set; }
+        public DateTime NgayThue { get; set; }
+        public int SoThangThue { get; set; }
+        public int TinhTrang { get; set; }
     }
 }
