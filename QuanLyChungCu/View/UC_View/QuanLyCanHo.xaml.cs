@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace QuanLyChungCu.View.UC_View
     /// </summary>
     public partial class QuanLyCanHo : UserControl
     {
+        MySqlConnection conn;
+        string connectionString;
         public QuanLyCanHo()
         {
             InitializeComponent();
@@ -28,21 +31,25 @@ namespace QuanLyChungCu.View.UC_View
 
         private void InitData()
         {
-            List<CanHo> listCanHo = new List<CanHo>();
-            for(int i = 0; i < 20; ++i)
+            connectionString = "SERVER=127.0.0.1;PORT=3306;DATABASE=bookcar;UID=root;PASSWORD=''";
+            try
             {
-                listCanHo.Add(new CanHo()
+                conn = new MySqlConnection();
+                conn.ConnectionString = connectionString;
+                conn.Open();
+                string query = "SELECT * FROM listbooks";
+                // Create command
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while(dataReader.Read())
                 {
-                    IDCanHo = (i + 1).ToString(),
-                    TenCanHo = "Căn hộ " + (i + 1).ToString(),
-                    GiaCanHo = 10000000,
-                    GiaTheoThang = 100000,
-                    NgayThue = new DateTime(),
-                    SoThangThue = 0,
-                    TinhTrang = 1
-                });
+                   MessageBox.Show(dataReader["ID"] + "");
+                }
+                conn.Close();
+            } catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
-            lvDanhSachChungCu.ItemsSource = listCanHo;
         }
 
         private void Button_Xem_DichVu(object sender, RoutedEventArgs e)
